@@ -1,21 +1,30 @@
+import { useEffect, useState } from "react";
+
 import Filters from "components/Filters";
 import ItemCard from "components/ItemCard";
-import styles from "styles/Home.module.scss";
+
 import axiosInstance from "utils/apiCalls/axiosInstance";
 import useGetJobs from "utils/apiCalls/useGetJobs";
 import CustomButton from "utils/UI/CustomButton";
 import Typography from "utils/UI/Typography";
 
-export default function Home({ initialData }) {
-  const { isLoading, data, hasMore, getNextPage } = useGetJobs({
-    page: 1,
-  });
-  // console.log(hasMore);
+import styles from "styles/Home.module.scss";
+
+export default function Home({ initialData, query }) {
+  const { isLoading, data, hasMore, getNextPage, search, initiateState } =
+    useGetJobs({
+      page: 1,
+    });
+
+  useEffect(() => {
+    initiateState(initialData);
+  }, [initialData]);
+
   return (
     <div className={styles.container}>
-      <Filters />
+      <Filters query={query} doSearch={search} />
       <div className={styles.main}>
-        {[...initialData.items, ...data].map((job) => (
+        {data.map((job) => (
           <ItemCard key={job.id} item={job} />
         ))}
       </div>
@@ -33,20 +42,24 @@ export default function Home({ initialData }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps({ query }) {
+  const { location = "", keyword = "", fullTimeOnly = "" } = query;
   let initialData;
   await axiosInstance
     .get("/v1/jobs/", {
       params: {
+        keyword,
+        fullTimeOnly: fullTimeOnly === "true",
+        location,
         page: 1,
         limit: 3,
       },
     })
     .then((res) => {
-      initialData = res.data.result;
+      initialData = res.data;
     });
 
   return {
-    props: { initialData },
+    props: { initialData, query },
   };
 }
