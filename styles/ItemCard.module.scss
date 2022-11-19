@@ -1,0 +1,45 @@
+$padding: 40px;
+
+.main {
+  position: relative;
+  background-color: white;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  // min-width: 400px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  padding-left: $padding;
+  padding-right: $padding;
+}
+.logo {
+  border-radius: 30%;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 0;
+  left: $padding;
+  transform: translateY(-50%);
+  background-color: red;
+  width: 50px;
+  height: 50px;
+
+  & img {
+    max-width: 90%;
+    height: 30%;
+  }
+}
+
+.location {
+  color: rgb(83, 192, 83);
+}
+.content {
+  // background-color: blue;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+
+  gap: 15px;
+  margin-bottom: 25px;
+}
