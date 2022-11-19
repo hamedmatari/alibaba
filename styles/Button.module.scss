@@ -1,13 +1,16 @@
-$greenColor: green;
-$mainGreenColor: rgb(38, 174, 38);
-$hoverGreenColor: rgb(31, 145, 31);
+// main
+$mainGreenColor: #02cb9a;
+$hoverGreenColor: #01bd8e;
+// light
+$mainLightGreenColor: rgb(223 247 241);
+$mainLightGreenColorText: rgb(2 203 154);
+$hoverLightGreenColor: rgb(223 240 245);
+
 .btn {
   appearance: none;
-  background-color: $mainGreenColor;
-  border: 1px solid rgba(27, 31, 35, 0.15);
+  border: none;
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
-    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
   color: white;
   cursor: pointer;
@@ -27,35 +30,59 @@ $hoverGreenColor: rgb(31, 145, 31);
   vertical-align: middle;
   white-space: nowrap;
   word-wrap: break-word;
+
+  &:hover {
+    text-decoration: none;
+    transition-duration: 0.1s;
+  }
+
+  &:disabled {
+    background-color: #fafbfc;
+    color: #959da5;
+    cursor: default;
+  }
+
+  &:active {
+    box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+    transition: none 0s;
+  }
+
+  &:focus {
+    outline: 1px transparent;
+  }
+
+  &:before {
+    display: none;
+  }
+
+  &:-webkit-details-marker {
+    display: none;
+  }
 }
 
-.btn:hover {
-  background-color: $hoverGreenColor;
-  text-decoration: none;
-  transition-duration: 0.1s;
-}
-
-.btn:disabled {
-  background-color: #fafbfc;
+.primary {
+  background-color: $mainGreenColor;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959da5;
-  cursor: default;
+
+  &:hover {
+    background-color: $hoverGreenColor;
+  }
+
+  &:active {
+    background-color: $mainGreenColor;
+  }
 }
 
-.btn:active {
-  background-color: $greenColor;
-  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
-  transition: none 0s;
-}
+.light {
+  background-color: $mainLightGreenColor;
+  color: $mainLightGreenColorText;
+  border: none;
 
-.btn:focus {
-  outline: 1px transparent;
-}
+  &:hover {
+    background-color: $hoverLightGreenColor;
+  }
 
-.btn:before {
-  display: none;
-}
-
-.btn:-webkit-details-marker {
-  display: none;
+  &:active {
+    background-color: $mainLightGreenColor;
+  }
 }
