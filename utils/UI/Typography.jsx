@@ -1,18 +1,22 @@
-import styles from 'styles/Typography.module.scss';
-function Typography({ children, variant, noWrap, className }) {
+import styles from "styles/Typography.module.scss";
+function Typography({ children, variant, noWrap, className, styles = {} }) {
   const data = () => {
     switch (variant) {
-      case 'light':
+      case "light":
         return <div className={`${styles.light} ${className}`}>{children}</div>;
-      case 'middle':
-        return <div className={`${styles.middle} ${className}`}>{children}</div>;
-      case 'bold':
+      case "middle":
+        return (
+          <div className={`${styles.middle} ${className}`}>{children}</div>
+        );
+      case "bold":
         return <div className={`${styles.bold} ${className}`}>{children}</div>;
       default:
         return children;
     }
   };
-  return <div style={{ whiteSpace: noWrap && 'nowrap' }}>{data()}</div>;
+  return (
+    <div style={{ whiteSpace: noWrap && "nowrap", ...styles }}>{data()}</div>
+  );
 }
 
 export default Typography;
