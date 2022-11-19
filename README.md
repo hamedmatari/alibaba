@@ -10,6 +10,10 @@ npm install
 yarn
 ```
 
+You need to rename ```.env.local.sample``` to ```.env.local```
+
+recommended node version : v16.13.1
+
 Then run development server :
 ```bash
 npm next dev
