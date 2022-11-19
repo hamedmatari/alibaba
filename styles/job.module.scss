@@ -48,7 +48,6 @@
 }
 
 .header-box {
-  background-color: #ea930f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,15 +133,14 @@
   background-color: #fff;
   height: 5rem;
   @media screen and (max-width: 750px) {
-  display: none;
+    display: none;
   }
 }
 
-.action-bottom-container{ 
+.action-bottom-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 0 5rem ;
-
+  padding: 0 5rem;
 }
