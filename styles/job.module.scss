@@ -1,0 +1,148 @@
+.header {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+
+  @media screen and (max-width: 750px) {
+    overflow: unset;
+  }
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.header-text {
+  @media screen and (max-width: 750px) {
+    min-width: 100%;
+    margin-top: 3rem;
+    text-align: center;
+  }
+}
+
+.compony-btn {
+  @media screen and (max-width: 750px) {
+    margin: 0 auto;
+    margin-top: 1.5rem;
+  }
+}
+
+.header-box-container {
+  @media screen and (max-width: 750px) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    top: -4rem;
+  }
+}
+
+.header-box {
+  background-color: #ea930f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem !important;
+  font-weight: 700;
+  width: 7rem;
+  height: 7rem;
+  color: #fff;
+
+  @media screen and (max-width: 750px) {
+    border-radius: 1rem;
+    position: absolute;
+  }
+}
+
+.body {
+  background-color: #fff;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.body-content {
+  @extend .header-content;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.body-content-right {
+  width: 100% !important;
+  flex: 1;
+
+  @media screen and (max-width: 750px) {
+    min-width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+.body-content-left {
+  @media screen and (max-width: 750px) {
+    min-width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+.body-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.text-light {
+  color: rgb(139, 138, 138);
+}
+
+.time {
+  color: rgb(184, 184, 184);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.country {
+  color: #01bd8e;
+}
+
+.card-padding {
+  padding: 1.75rem 1.5rem;
+}
+
+// action bottom
+.action-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  height: 5rem;
+  @media screen and (max-width: 750px) {
+  display: none;
+  }
+}
+
+.action-bottom-container{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 5rem ;
+
+}

@@ -21,7 +21,7 @@ export default function Home({ initialData, query }) {
   }, [initialData]);
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <Filters query={query} doSearch={search} />
       <div className={styles.main}>
         {data.map((job) => (
