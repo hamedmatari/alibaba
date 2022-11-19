@@ -1,12 +1,14 @@
-import styles from "styles/Button.module.scss";
+import styles from 'styles/Button.module.scss';
 
-function CustomButton({ children, onClick }) {
+function CustomButton({ children, onClick, variant = 'primary', className }) {
   return (
-    <div>
-      <button onClick={onClick} className={styles.btn} role="button">
-        {children}
-      </button>
-    </div>
+    <button
+      onClick={onClick}
+      className={`${styles.btn} ${styles[variant]} ${className} `}
+      role='button'
+    >
+      {children}
+    </button>
   );
 }
 

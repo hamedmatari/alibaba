@@ -12,7 +12,7 @@ export default function Home({ initialData }) {
   });
   // console.log(hasMore);
   return (
-    <div className={styles.container}>
+    <div className='container'>
       <Filters />
       <div className={styles.main}>
         {[...initialData.items, ...data].map((job) => (
