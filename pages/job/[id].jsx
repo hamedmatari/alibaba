@@ -5,13 +5,22 @@ import Typography from "utils/UI/Typography";
 import useGetJob from "utils/apiCalls/useGetJob";
 import { useRouter } from "next/router";
 import calculateDate from "utils/UI/calculateDay";
+import axiosInstance from "utils/apiCalls/axiosInstance";
 
-function Job() {
-  const router = useRouter();
-  const { id } = router.query;
-  const { isLoading, data } = useGetJob({ id });
-  console.log("data", data);
-  if (isLoading) return <Typography variant="bold">Loading...</Typography>;
+function Job({ data }) {
+  // const router = useRouter();
+  // const { id } = router.query;
+  // const { isLoading, data } = useGetJob({ id });
+  // console.log("job", data);
+  // if ("isLoading")
+  //   return (
+  //     <Typography
+  //       variant="bold"
+  //       styles={{ textAlign: "center", marginTop: "100px", color: "green" }}
+  //     >
+  //       Loading...
+  //     </Typography>
+  //   );
   return (
     <div className="container-md">
       {/* Header */}
@@ -96,3 +105,37 @@ function Job() {
 }
 
 export default Job;
+
+export async function getStaticPaths() {
+  // let paths = [];
+  // await axiosInstance
+  //   .get("/v1/jobs/", {
+  //     params: {
+  //       page: 1,
+  //       limit: 15,
+  //     },
+  //   })
+  //   .then((res) => {
+  //     paths = res.data.result.items.map((item) => ({
+  //       params: {
+  //         id: `${item.id}`,
+  //       },
+  //     }));
+  //   });
+  const paths = [...Array(15)].map((e, i) => ({ params: { id: `${i + 1}` } }));
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+// `getStaticPaths` requires using `getStaticProps`
+export async function getStaticProps({ params: { id } }) {
+  let data;
+  await axiosInstance.get(`/v1/jobs/${id}`).then((res) => {
+    data = res.data.result;
+  });
+  return {
+    props: { data },
+  };
+}
