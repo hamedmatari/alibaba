@@ -1,0 +1,43 @@
+$backgroundColor: rgb(238, 244, 249);
+.main {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  //   border-bottom: 3px $backgroundColor solid;
+  box-shadow: $backgroundColor 0px 25px 50px -12px;
+  background-color: white;
+  border-radius: 6px;
+  margin-bottom: 100px;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 10px;
+  div {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+}
+.location {
+  // border-left,border-right: ;
+  //   border: 10px salmon solid;
+  // width: 30%;
+  flex-grow: 1;
+  flex-shrink: 2;
+  border-left: 2px rgb(238, 244, 249) solid;
+  border-right: 2px rgb(238, 244, 249) solid;
+}
+.btnCheckbox {
+  // max-width: 30%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.company {
+  flex-shrink: 2;
+  flex-grow: 3;
+
+  // width: 40%;
+}
